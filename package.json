@@ -2,9 +2,11 @@
   "name": "music-fest",
   "version": "1.0.0",
   "description": "Learn SASS and GULP",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "sass": "sass src/scss:build/css --watch"
+    "sass": "sass src/scss:build/css --watch",
+    "hola": "gulp hola"
   },
   "keywords": [
     "SASS",
