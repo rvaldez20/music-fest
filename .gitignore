@@ -81,3 +81,4 @@ mongo_data/
 docker-compose.yml
 
 node_modules/
+build/
