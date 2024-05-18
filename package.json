@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass src/scss:build/css --watch",
-    "hola": "gulp hola"
+    "css": "gulp css"
   },
   "keywords": [
     "SASS",
