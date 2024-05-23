@@ -1,8 +1,24 @@
 
 document.addEventListener('DOMContentLoaded', function(){
+   navegacionFija()
    crearGaleria()
-
 })
+
+function navegacionFija() {
+   const header = document.querySelector('.header')
+   const sobreFestival = document.querySelector('.sobre-festival')
+   // const galeria = document.querySelector('.galeria')
+
+   document.addEventListener('scroll', function() {
+      // console.log(sobreFestival.getBoundingClientRect().bottom)
+      if(sobreFestival.getBoundingClientRect().bottom < 1){
+         header.classList.add('fixed')
+      } else {
+         header.classList.remove('fixed')
+      }
+   })
+
+}
 
 function crearGaleria() {
    const totalImagenes = 16;
@@ -12,8 +28,6 @@ function crearGaleria() {
       const imagen = document.createElement('IMG')
       imagen.src = `src/img/gallery/full/${i}.jpg`
       imagen.alt = 'Imagen Galeria'
-
-      // console.log(imagen)
 
       // event handlerc (click)
       imagen.onclick = function(e) {
@@ -33,7 +47,6 @@ function mostrarImage(i) {
    const imagen = document.createElement('IMG')
    imagen.src = `src/img/gallery/full/${i}.jpg`
    imagen.alt = `Imagen Galeria ${i}`
-   // console.log(imagen)
 
    // construir overlay que muestra la imagen mas grande
    //! crear modal
@@ -67,10 +80,3 @@ function cerrarModal() {
       body.classList.remove('overflow-hidden')
    }, 500);
 }
-
-
-
-// galeria.addEventListener('click', function(e) {
-//    const imgSelect = e.target.src.split('/')[7]
-//    console.log(imgSelect)
-// })
