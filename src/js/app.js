@@ -29,8 +29,12 @@ function crearGaleria() {
 
    for(i = 1; i <= totalImagenes; i++){
       const imagen = document.createElement('IMG')
+      imagen.loading = 'lazy'
+      imagen.width = "300"
+      imagen.height = "200"
       imagen.src = `src/img/gallery/full/${i}.jpg`
       imagen.alt = 'Imagen Galeria'
+
 
       // event handlerc (click)
       imagen.onclick = function(e) {
