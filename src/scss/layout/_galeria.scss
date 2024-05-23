@@ -24,11 +24,56 @@
 }
 
 .modal {
-
    position: fixed;
    inset: 0;  // equivale a top:0 left:0 right:0 y bottom:0
+   background-color: rgba(v.$black, 75%);
+   display: grid;
+   place-items: center;
+   animation: fadeIn ease-in .5s;
 
+   &.fade-out {
+      animation: fadeOut ease-in .5s;
+   }
 
-   background-color: rgba(v.$black, 50%)
-   // opacity: 75%;
+   img {
+      max-width: 100rem;
+   }
+}
+
+.btn-cerrar {
+   width: 4rem;
+   height: 4rem;
+   border-radius: 50%;
+   border: none;
+   background-color: v.$white;
+   color: v.$black;
+   display: grid;
+   place-items: center;
+   font-weight: 700;
+   cursor: pointer;
+   transition: all ease .5s;
+
+   &:hover {
+      background-color: #746f6f;
+   }
+}
+
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes fadeOut {
+   0% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+   }
 }
