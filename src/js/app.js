@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', function(){
    navegacionFija()
    crearGaleria()
+   resaltarEnlace()
 })
+
 
 function navegacionFija() {
    const header = document.querySelector('.header')
@@ -41,7 +43,6 @@ function crearGaleria() {
    }
 }
 
-
 function mostrarImage(i) {
    // creamos la imagen
    const imagen = document.createElement('IMG')
@@ -79,4 +80,30 @@ function cerrarModal() {
       const body = document.querySelector('body')
       body.classList.remove('overflow-hidden')
    }, 500);
+}
+
+function resaltarEnlace() {
+   document.addEventListener('scroll', function() {
+      const secttions = document.querySelectorAll('section')
+      const navLinks = document.querySelectorAll('.navegacion-principal a')
+
+      let actual =''
+      secttions.forEach( section => {
+         // .offsetTop obtiene la distancia del elemento al top del body, lo hace para cada section
+         const sectionTop = section.offsetTop
+         // .clientHeight obtiene la distancia en pixeles d ela seccion
+         const sectionHeight = section.clientHeight
+         if(window.scrollY >= (sectionTop - sectionHeight / 3)) {
+            actual = section.id
+         }
+      })
+
+      navLinks.forEach( link => {
+         link.classList.remove('active')
+         if(link.getAttribute('href') === `#${actual}`) {
+            link.classList.add('active')
+         }
+      })
+
+   })
 }

@@ -47,7 +47,8 @@
       font-size: 2.4rem;
       font-weight: 500;
 
-      &:hover {
+      &:hover,
+      &.active {
          color: v.$yellow;
          font-weight: 500;
       }
