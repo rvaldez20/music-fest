@@ -28,12 +28,19 @@ function crearGaleria() {
    const galeria = document.querySelector('.galeria-imagenes')
 
    for(i = 1; i <= totalImagenes; i++){
-      const imagen = document.createElement('IMG')
-      imagen.loading = 'lazy'
-      imagen.width = "300"
-      imagen.height = "200"
-      imagen.src = `src/img/gallery/thumb/${i}.jpg`
-      imagen.alt = 'Imagen Galeria'
+      const imagen = document.createElement('PICTURE')
+      imagen.innerHTML = `
+         <source srcset="build/img/gallery/thumb/${i}.avif" type="image/avif">
+         <source srcset="build/img/gallery/thumb/${i}.webp" type="image/webp">
+         <img loading="lazy" width="200" height="300" src="build/img/gallery/thumb/${i}.jpg" alt="imagen galeria">
+      `;
+
+      // const imagen = document.createElement('IMG')
+      // imagen.loading = 'lazy'
+      // imagen.width = "300"
+      // imagen.height = "200"
+      // imagen.src = `src/img/gallery/thumb/${i}.jpg`
+      // imagen.alt = 'Imagen Galeria'
 
 
       // event handlerc (click)
@@ -50,9 +57,16 @@ function crearGaleria() {
 
 function mostrarImage(i) {
    // creamos la imagen
-   const imagen = document.createElement('IMG')
-   imagen.src = `src/img/gallery/full/${i}.jpg`
-   imagen.alt = `Imagen Galeria ${i}`
+   const imagen = document.createElement('PICTURE')
+   imagen.innerHTML = `
+         <source srcset="build/img/gallery/full/${i}.avif" type="image/avif">
+         <source srcset="build/img/gallery/full/${i}.webp" type="image/webp">
+         <img loading="lazy" width="200" height="300" src="build/img/gallery/full/${i}.jpg" alt="imagen galeria">
+      `;
+
+   // const imagen = document.createElement('IMG')
+   // imagen.src = `src/img/gallery/full/${i}.jpg`
+   // imagen.alt = `Imagen Galeria ${i}`
 
    // construir overlay que muestra la imagen mas grande
    //! crear modal
