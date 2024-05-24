@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass src/scss:build/css --watch",
+    "imagenes": "gulp imagenes",
     "dev": "gulp"
   },
   "keywords": [
@@ -16,6 +17,7 @@
   "author": "Raul Valdez",
   "license": "ISC",
   "devDependencies": {
+    "glob": "^10.3.16",
     "gulp": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
